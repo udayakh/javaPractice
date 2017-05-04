@@ -8,6 +8,9 @@
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+sourceSets.main.resources.srcDir 'src/main/java'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -16,12 +19,15 @@ repositories {
     jcenter()
 }
 
-task "create-dirs" << {
-   sourceSets*.java.srcDirs*.each { it.mkdirs() }
-   sourceSets*.resources.srcDirs*.each { it.mkdirs() }
-}
-
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.10.Final'
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+	testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+	testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: '1.6.5'
+	testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.6.5'
+	testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+     
 }
 
