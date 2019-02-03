@@ -6,7 +6,7 @@ import org.junit.Test;
 public class HelloJUnitTest {
 
 	@Test
-	public void test() {
+	public void test1() {
 		//fail("Not yet implemented");
 	}
 
